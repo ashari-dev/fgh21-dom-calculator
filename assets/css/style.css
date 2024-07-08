@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+}
+:root {
+  --cal-black: #333333;
+  --cal-orange: #f1a33b;
+  --cal-grey: #a5a5a5;
+  --white: #ffffff;
+  --black: #000000;
+}
+.container {
+  max-width: 428px;
+  background-color: var(--black);
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  padding: 74px 17px;
+  gap: 10px;
+}
+.container > .text {
+  flex: 1;
+  color: var(--white);
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  font-size: 90px;
+  padding-right: 20px;
+}
+.container > .button {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 14px;
+}
+.container > .button button {
+  height: 88px;
+  width: 88px;
+  border-radius: 50%;
+  border: none;
+  font-size: 40px;
+  color: var(--white);
+}
+.container > .button button.long {
+  grid-column: 1/3;
+  width: 190px;
+  border-radius: 50px;
+}
+.container > .button button.orange {
+  background-color: var(--cal-orange);
+}
+.container > .button button.grey {
+  background-color: var(--cal-grey);
+}
+.container > .button button.black {
+  background-color: var(--cal-black);
+}
