@@ -15,7 +15,7 @@ button.forEach((btn) => {
       // penjumlahan
       if (result.textContent.includes("+")) {
         const arrNum = result.textContent.slice(0, -1).split("+");
-        const nums = arrNum.map((num) => parseInt(num));
+        const nums = arrNum.map((num) => Number(num));
         let sum = 0;
         nums.forEach((item) => {
           sum += item;
@@ -23,11 +23,10 @@ button.forEach((btn) => {
         result.textContent = sum;
         return;
       }
-
       // perkalian
       if (result.textContent.includes("x")) {
         const arrNum = result.textContent.slice(0, -1).split("x");
-        const nums = arrNum.map((num) => parseInt(num));
+        const nums = arrNum.map((num) => Number(num));
         result.innerText = nums.reduce((total, num) => {
           return total * num;
         });
@@ -36,7 +35,7 @@ button.forEach((btn) => {
       // pembagian
       if (result.textContent.includes("/")) {
         const arrNum = result.textContent.slice(0, -1).split("/");
-        const nums = arrNum.map((num) => parseInt(num));
+        const nums = arrNum.map((num) => Number(num));
         result.innerText = nums.reduce((total, num) => {
           return total / num;
         });
@@ -45,7 +44,7 @@ button.forEach((btn) => {
       // pengurangan
       if (result.textContent.includes("-")) {
         const arrNum = result.textContent.slice(0, -1).split("-");
-        const nums = arrNum.map((num) => parseInt(num));
+        const nums = arrNum.map((num) => Number(num));
         result.textContent = nums.reduce((total, num) => {
           return total - num;
         });
@@ -54,7 +53,7 @@ button.forEach((btn) => {
     }
     // persen
     if (result.textContent.includes("%")) {
-      const num = parseInt(result.textContent);
+      const num = Number(result.textContent);
       let total = num / 100;
       result.innerText = total;
     }
@@ -63,11 +62,14 @@ button.forEach((btn) => {
       const num = result.textContent;
       let conversi = 0;
       if (result.textContent.includes("-")) {
-        conversi = -parseInt(num);
+        conversi = -parseFloat(num);
       }
       result.innerText = conversi;
     }
-    if (event.currentTarget.textContent === "AC") {
+    if (
+      event.currentTarget.textContent === "AC" ||
+      event.currentTarget.textContent === "="
+    ) {
       result.textContent = "0";
     }
   });
