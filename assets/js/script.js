@@ -60,15 +60,24 @@ button.forEach((btn) => {
     }
     // persen
     if (result.textContent.includes("%")) {
-      const num = parseFloat(result.textContent);
-      let total = num / 100;
-      result.innerText = total;
+      if (result.textContent === "%") {
+        result.innerText = "0";
+      } else {
+        const num = parseFloat(result.textContent);
+        console.log(num);
+        let total = num / 100;
+        result.innerText = total;
+      }
     }
     // konfersi
     if (result.textContent.includes("+/-")) {
       const num = result.textContent;
-      let conversi = -parseFloat(num);
-      result.innerText = conversi;
+      if (num === "+/-") {
+        result.innerText = "0";
+      } else {
+        let conversi = -parseFloat(num);
+        result.innerText = conversi;
+      }
     }
     if (
       event.currentTarget.textContent === "AC" ||
