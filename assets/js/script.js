@@ -1,8 +1,15 @@
 const result = document.getElementById("result");
 const button = Array.from(document.getElementsByTagName("button"));
+const arrAritmatika = ["+", "-", "x", "/"];
+
 button.forEach((btn) => {
   btn.addEventListener("click", (event) => {
     if (event.currentTarget.textContent === ".") {
+      arrAritmatika.forEach((e) => {
+        if (result.textContent.includes(e)) {
+          result.textContent += ".";
+        }
+      });
       if (!result.textContent.includes(".")) {
         result.textContent += ".";
       }
@@ -53,17 +60,14 @@ button.forEach((btn) => {
     }
     // persen
     if (result.textContent.includes("%")) {
-      const num = Number(result.textContent);
+      const num = parseFloat(result.textContent);
       let total = num / 100;
       result.innerText = total;
     }
     // konfersi
     if (result.textContent.includes("+/-")) {
       const num = result.textContent;
-      let conversi = 0;
-      if (result.textContent.includes("-")) {
-        conversi = -parseFloat(num);
-      }
+      let conversi = -parseFloat(num);
       result.innerText = conversi;
     }
     if (
